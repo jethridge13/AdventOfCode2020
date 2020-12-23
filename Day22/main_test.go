@@ -18,6 +18,13 @@ func TestCalcScore(t *testing.T) {
 	if score != exp {
 		t.Errorf("Score wrong. Want %d; got %d", exp, score)
 	}
+
+	input = []int{1, 42, 9, 36, 30, 32, 14, 24, 7, 34, 19, 38, 29, 48, 15, 23, 21, 50, 5, 35, 25, 43, 16, 41, 39, 40, 22, 45, 12, 37, 13, 18, 6, 47, 4, 33, 26, 46, 2}
+	score = calcScore(input)
+	exp = 20389
+	if score != exp {
+		t.Errorf("Score wrong. Want %d; got %d", exp, score)
+	}
 }
 
 func TestBattle(t *testing.T) {
@@ -31,7 +38,7 @@ func TestBattle(t *testing.T) {
 func TestGetDeckHash(t *testing.T) {
 	decks := parseDecks("./example.txt")
 	hash := getDeckHash(decks[0], decks[1])
-	exp := "92631584710"
+	exp := "P0:92631P1:584710"
 	if hash != exp {
 		t.Errorf("Wrong hash. Want %s; got %s", exp, hash)
 	}

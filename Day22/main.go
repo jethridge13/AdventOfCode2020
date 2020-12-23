@@ -63,7 +63,9 @@ func battle(p1 []int, p2 []int) (int, int) {
 
 func getDeckHash(decks ...[]int) string {
 	hash := ""
-	for _, deck := range decks {
+	for index, deck := range decks {
+		strIndex := strconv.Itoa(index)
+		hash += "P" + strIndex + ":"
 		for _, card := range deck {
 			hash += strconv.Itoa(card)
 		}
@@ -124,7 +126,7 @@ func main() {
 	decks := parseDecks("./input.txt")
 	_, score := battle(decks[0], decks[1])
 	fmt.Println(score)
-	// Part 2:
+	// Part 2: 35154
 	_, score = recursiveBattle(decks[0], decks[1], 1)
 	fmt.Println(score)
 }
