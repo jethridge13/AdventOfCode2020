@@ -9,6 +9,11 @@ import (
 	"strings"
 )
 
+type ticketField struct {
+	name   string
+	ranges [2][2]int
+}
+
 func parseInput(path string) ([][2]int, []int, []int) {
 	file, err := os.Open(path)
 	if err != nil {
